@@ -70,7 +70,7 @@ const Contacts = () => {
           name="name"
           required
         />
-        <label htmlFor={numId}>Numer telefonu</label>
+        <label htmlFor={numId}>Numer telefonu.</label>
         <input
           id={numId}
           type="tel"

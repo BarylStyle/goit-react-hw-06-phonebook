@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 import { saveContact, deleteContact, setFilter } from '../features/contactsSlice';
 import styles from './Contacts/Contact.module.scss';
@@ -70,7 +71,7 @@ const Contacts = () => {
           name="name"
           required
         />
-        <label htmlFor={numId}>Numer telefonu.</label>
+        <label htmlFor={numId}>Numer telefonu</label>
         <input
           id={numId}
           type="tel"
@@ -110,6 +111,15 @@ const Contacts = () => {
       </ul>
     </>
   );
+};
+
+Contacts.propTypes = {
+  contacts: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    number: PropTypes.string.isRequired,
+  })),
+  filter: PropTypes.string,
 };
 
 export default Contacts;
